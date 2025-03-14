@@ -188,7 +188,7 @@ class fwdBlockmask: public fwdIteratorBase{
         assert(params.m_block_dim % kBlockM == 0);
         assert(params.n_block_dim % kBlockN == 0);
         
-        blockmask_ptr = params.blockmask + (batch_idx * params.num_blocksparse_heads + mask_type - 1) * int(params.seqlen_q_rounded / m_block_dim) * int(params.seqlen_k_rounded / n_block_dim) + int(loop_step_idx / row_factor) * int(params.seqlen_k_rounded / n_block_dim);
+        blockmask_ptr = params.blockmask + (batch_idx * params.num_blocksparse_heads + head_idx + mask_type - 1) * int(params.seqlen_q_rounded / m_block_dim) * int(params.seqlen_k_rounded / n_block_dim) + int(loop_step_idx / row_factor) * int(params.seqlen_k_rounded / n_block_dim);
     };
 
     __device__ int mask_val(int block_col_idx) const {
@@ -362,7 +362,7 @@ struct bwdBlockmask: public bwdIteratorBase{
         assert(params.m_block_dim % kBlockM == 0);
         assert(params.n_block_dim % kBlockN == 0);
 
-        blockmask_ptr = params.blockmask + (batch_idx * params.num_blocksparse_heads + mask_type - 1) * int(params.seqlen_k_rounded / n_block_dim) * int(params.seqlen_q_rounded / m_block_dim) + int(loop_step_idx / col_factor) * int(params.seqlen_q_rounded / m_block_dim);
+        blockmask_ptr = params.blockmask + (batch_idx * params.num_blocksparse_heads + head_idx + mask_type - 1) * int(params.seqlen_k_rounded / n_block_dim) * int(params.seqlen_q_rounded / m_block_dim) + int(loop_step_idx / col_factor) * int(params.seqlen_q_rounded / m_block_dim);
     };
 
     __device__ int mask_val(int block_row_idx) const {
