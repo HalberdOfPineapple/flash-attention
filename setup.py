@@ -183,6 +183,7 @@ if not SKIP_CUDA_BUILD:
                 "csrc/block_sparse_attn/src/flash_fwd_split_hdim224_bf16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_fwd_split_hdim256_fp16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_fwd_split_hdim256_bf16_sm80.cu",
+
                 # add by JXGuo
                 "csrc/block_sparse_attn/src/flash_fwd_block_hdim32_fp16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_fwd_block_hdim32_bf16_sm80.cu",
@@ -190,7 +191,6 @@ if not SKIP_CUDA_BUILD:
                 "csrc/block_sparse_attn/src/flash_fwd_block_hdim64_bf16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_fwd_block_hdim128_fp16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_fwd_block_hdim128_bf16_sm80.cu",
-                
                 "csrc/block_sparse_attn/src/flash_bwd_block_hdim32_fp16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_bwd_block_hdim32_bf16_sm80.cu",
                 "csrc/block_sparse_attn/src/flash_bwd_block_hdim64_fp16_sm80.cu",
